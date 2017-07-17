@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jIG-sC-gYu">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Ye4-Gh-jia">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="jIG-sC-gYu" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yZU-PG-d0z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rgD-Nv-f4O" kind="relationship" relationship="rootViewController" id="cXx-dE-j6Z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rUs-ql-oT7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-327" y="219"/>
+        </scene>
+        <!--Science View Controller-->
+        <scene sceneID="obe-BV-FqX">
+            <objects>
+                <viewController wantsFullScreenLayout="YES" id="rgD-Nv-f4O" customClass="LScienceViewController" customModule="Healthy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ffs-1W-LDv"/>
+                        <viewControllerLayoutGuide type="bottom" id="z5t-7v-gl5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jgK-rJ-vMx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="e4W-A1-bgC"/>
+                    <connections>
+                        <segue destination="XIh-43-jH7" kind="show" identifier="toDetail" id="6fP-nA-mz2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="47V-Ar-PjH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="457" y="218"/>
+        </scene>
+        <!--Science Detail View Controller-->
+        <scene sceneID="EyZ-7v-CkB">
+            <objects>
+                <viewController wantsFullScreenLayout="YES" hidesBottomBarWhenPushed="YES" id="XIh-43-jH7" customClass="LScienceDetailViewController" customModule="Healthy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZWF-8e-Ksf"/>
+                        <viewControllerLayoutGuide type="bottom" id="xH8-8q-uUN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aWx-Lx-7N5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dpy-nw-5ak">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dpy-nw-5ak" firstAttribute="top" secondItem="ZWF-8e-Ksf" secondAttribute="bottom" constant="44" id="2L6-QZ-kJf"/>
+                            <constraint firstItem="xH8-8q-uUN" firstAttribute="top" secondItem="dpy-nw-5ak" secondAttribute="bottom" id="Qae-8I-430"/>
+                            <constraint firstAttribute="trailing" secondItem="dpy-nw-5ak" secondAttribute="trailing" id="cQO-HA-50O"/>
+                            <constraint firstItem="dpy-nw-5ak" firstAttribute="leading" secondItem="aWx-Lx-7N5" secondAttribute="leading" id="yfS-JE-L48"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="myWebView" destination="dpy-nw-5ak" id="6w8-VF-D9O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HrT-fc-T0O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1175" y="217"/>
+        </scene>
+    </scenes>
+</document>

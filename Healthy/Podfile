@@ -1,0 +1,46 @@
+# Uncomment this line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'Healthy' do
+  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Healthy
+  pod 'Alamofire'
+  pod 'AlamofireImage'
+  pod 'AFNetworking', '~> 3.1.0'
+  pod 'XCGLogger'
+  pod 'UPCarouselFlowLayout'
+  pod 'HandyJSON'
+  pod 'SDWebImage', '3.8.2' 
+#  pod 'MBProgressHUD', '~> 0.9' 
+  pod 'SDCycleScrollView' 
+  pod 'SwiftyJSON'
+  pod 'UITableView+FDTemplateLayoutCell_Bell', '~> 1.5.0'
+  pod 'Socket.IO-Client-Swift', '~> 8.3.0’ # Or latest version
+  pod 'CocoaAsyncSocket'  
+  pod 'KissXML'
+  pod 'MWPhotoBrowser', '~> 2.1.2'
+  pod 'TZImagePickerController'
+  
+  pod 'rebekka', '~> 1.0.3'
+  
+  pod 'NIMSDK'
+  
+  ## 主模块(必须)
+#  pod 'ShareSDK3'
+  ## Mob 公共库(必须)
+#  pod 'MOBFoundation'
+  ## 平台SDK模块(对照一下平台，需要的加上。如果只需要QQ、微信、新浪微博，只需要以下3行)
+#  pod 'ShareSDK3/ShareSDKPlatforms/QQ'
+#  pod 'ShareSDK3/ShareSDKPlatforms/SinaWeibo'
+#  pod 'ShareSDK3/ShareSDKPlatforms/WeChat'
+
+  post_install do |installer|
+      installer.pods_project.targets.each do |target|
+          target.build_configurations.each do |config|
+              config.build_settings['SWIFT_VERSION'] = '3.0'
+          end
+      end
+  end
+end

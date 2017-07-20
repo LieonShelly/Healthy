@@ -2,12 +2,11 @@
 //  NIMDocTranscodingInfo.h
 //  NIMLib
 //
-//  Created by Netease.
+//  Created by Netease on 16/12/9.
 //  Copyright © 2016年 Netease. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "NIMPlatform.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

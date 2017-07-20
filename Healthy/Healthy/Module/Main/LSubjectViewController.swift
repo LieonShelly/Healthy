@@ -23,10 +23,6 @@ class LSubjectViewController: LBaseViewController {
         setupTableView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -69,8 +65,6 @@ class LSubjectViewController: LBaseViewController {
     let request = LRequstXml.share
     func loadData() {
         let hud = MBProgressHUD.showAdded(to: self.navigationController?.view, animated: true)
-
-//        request.createSocket(tableName: "O11", dataStr: rowID)
         request.requestDataWith(tableName: "O11", dataStr: rowID)
         request.getData = { dataDic in
             let theArray = dataDic["Tabel"]

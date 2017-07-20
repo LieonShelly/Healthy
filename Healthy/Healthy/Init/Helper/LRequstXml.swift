@@ -11,7 +11,22 @@ import CocoaAsyncSocket
 import KissXML
 import MBProgressHUD
 
-//GCDAsyncUdpSocketDelegate
+
+enum CommandType: String {
+    case login, heartBeat = "F000"
+    case dbOpration = "F001"
+    case regist = "F003"
+    case none = "-1"
+    case logicData = "F002"
+}
+
+class RequestParam {
+    var command: CommandType = .none
+    var tableCom: String = ""
+    var tableName: String = ""
+    var data: String = ""
+}
+
 class LRequstXml: NSObject, GCDAsyncSocketDelegate  {
     
     typealias success = (Dictionary<String, Any>) -> ()
@@ -77,14 +92,12 @@ class LRequstXml: NSObject, GCDAsyncSocketDelegate  {
     func requestDataWith(command: String, tableCom: String, tableName: String, dataStr: String) {
         
         if self.disConnect == true {
-//            socket.disconnect()
-            self.reConnect()
+            socket.disconnect()
         }
         
         let data = LXMLModel.initConnectXMLData(command: command, tableCom: tableCom, tableName: tableName, dataStr: dataStr)
         let length = data.count
         
-        print(length)
         var networkOrderVal = CFSwapInt32LittleToHost(UInt32(length))
         let theData =  Data.init(bytes: &networkOrderVal, count: MemoryLayout<UInt32>.size)
         
@@ -93,7 +106,24 @@ class LRequstXml: NSObject, GCDAsyncSocketDelegate  {
         
     }
     
-    //MARK: - GCDAsyncSocketDelegate
+    func loadHomeTabeName() {
+        if self.disConnect == true {
+            socket.disconnect()
+        }
+        let superElemt = DDXMLElement(name: "MessgaeData")
+        let command = DDXMLElement(name: "Command", stringValue: "F002")
+        superElemt.addChild(command)
+        let tableCommand = DDXMLElement(name: "TableCom", stringValue: "0")
+        superElemt.addChild(tableCommand)
+        let tableName = DDXMLElement(name: "TableName", stringValue: "01")
+        superElemt.addChild(tableName)
+        guard let doc = try? DDXMLDocument(xmlString: superElemt.xmlString, options: 0) else { return }
+        let payloadData = doc.xmlData
+        socket.write(payloadData, withTimeout: 10, tag: 0)
+        print("********loadHomeTabeName************")
+        print(doc.xmlString)
+    }
+    
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
         print("连接成功")
         sock.readData(withTimeout: 8, tag: 0)
@@ -103,7 +133,7 @@ class LRequstXml: NSObject, GCDAsyncSocketDelegate  {
     
     func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
         self.disConnect = true
-        print("连接断开", err)
+        print("连接断开", err ?? "eroor")
         if self.requestError != nil {
             self.requestError("连接断开")
         }
@@ -136,15 +166,15 @@ class LRequstXml: NSObject, GCDAsyncSocketDelegate  {
         }
         
         addData.append(tagData)
+        print("lenth" , lenth)
+        print("data" , addData.count)
         if addData.count == lenth{
-//            print("_______" , String.init(data: addData, encoding: .utf8))
-            
 
             do {
                 let newData = addData
                 
                 let doc = try DDXMLDocument.init(data: newData, options: 0)
-//                print("_______" , String.init(data: doc.xmlData, encoding: .utf8))
+                print("_______" , String.init(data: doc.xmlData, encoding: .utf8))
                 
                 let docment: Array<DDXMLNode>
                 do {
@@ -162,10 +192,11 @@ class LRequstXml: NSObject, GCDAsyncSocketDelegate  {
                             if self.getData != nil {
                                 sock.disconnect()
                                 self.disConnect = true
-                                
-                                self.getData(jsonDic as! Dictionary)
+                                guard let dic = jsonDic as? [String: Any] else {
+                                    return
+                                }
+                                self.getData(dic)
                             }
-                            print(jsonDic)
                             
                         }
                         print("222", string)

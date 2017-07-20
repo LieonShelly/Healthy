@@ -9,7 +9,7 @@
 #ifndef NIMLib_NIMGlobalDefs_h
 #define NIMLib_NIMGlobalDefs_h
 
-#import <Foundation/Foundation.h>
+
 
 /**
  *  消息内容类型枚举
@@ -47,10 +47,6 @@ typedef NS_ENUM(NSInteger, NIMMessageType){
      *  提醒类型消息
      */
     NIMMessageTypeTip           = 10,
-    /**
-     *  机器人类型消息
-     */
-    NIMMessageTypeRobot         = 11,
     /**
      *  自定义类型消息
      */

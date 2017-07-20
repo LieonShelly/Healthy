@@ -20,10 +20,9 @@ class LHealthyViewController: LBaseViewController, LHealthyHeaderViewDelegate {
 // MARK: - SystemMethod
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupNavigationItem()
         setupTableView()
-        self.loadTypeData()
+        loadTypeData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,8 +76,7 @@ class LHealthyViewController: LBaseViewController, LHealthyHeaderViewDelegate {
     
     func loadTypeData() {
         let hud = MBProgressHUD.showAdded(to: self.navigationController?.view, animated: true)
-        
-//        request.createSocket(tableName: "O1", dataStr: "")
+        request.loadHomeTabeName()
         request.requestDataWith(tableName: "O1", dataStr: "")
         request.getData = { dataDic in
             
@@ -98,8 +96,6 @@ class LHealthyViewController: LBaseViewController, LHealthyHeaderViewDelegate {
                 }
             }
             
-//            let model = self.typeData[0]
-            
             DispatchQueue.main.async {
                 hud?.hide(true)
                 
@@ -118,33 +114,10 @@ class LHealthyViewController: LBaseViewController, LHealthyHeaderViewDelegate {
     }
     
     func loadData(_ rowID: String) {
-        
-//        if UserInfo.share.getUserID() == nil {
         logRequest.requestDataWith(command: "F000", tableCom: "0", tableName: "", dataStr: "C0001@$^$@12345678")
-        
         logRequest.getData = { dataDic in
             
         }
-//        }
-        
-//        0001-1023
-        
-        /*
-        request.createSocket(tableName: "O11", dataStr: rowID)
-        request.getData = { dataDic in
-            let theArray = dataDic["Tabel"]
-            for myArray in theArray as! Array<Any> {
-                if let theData = JSONDeserializer<LHealthyModel>.deserializeFrom(dict: myArray as? NSDictionary) {
-                    self.myData.append(theData)
-                }
-            }
-            DispatchQueue.main.async {
-                self.myTableView.reloadData()
-            }
-        }
- */
-//        request.createSocket(tableName: "O", dataStr: "")
-        
         
     }
     

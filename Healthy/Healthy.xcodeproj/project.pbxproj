@@ -919,7 +919,7 @@
 				TargetAttributes = {
 					42BB37A21E94BD220079A38B = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = UB97YJJG55;
+						DevelopmentTeam = 34WAS59P9G;
 						ProvisioningStyle = Automatic;
 					};
 					42BB37B61E94BD220079A38B = {
@@ -1300,7 +1300,7 @@
 			baseConfigurationReference = 0C25CCCA56224DCA78D571AF /* Pods-Healthy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = UB97YJJG55;
+				DEVELOPMENT_TEAM = 34WAS59P9G;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Healthy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1320,7 +1320,7 @@
 			baseConfigurationReference = 8BD7B3EBD3FE908A9B92A10E /* Pods-Healthy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = UB97YJJG55;
+				DEVELOPMENT_TEAM = 34WAS59P9G;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Healthy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

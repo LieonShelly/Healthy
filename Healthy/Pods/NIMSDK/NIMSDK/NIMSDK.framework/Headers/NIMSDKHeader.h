@@ -34,7 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  初始化SDK
  *
  *  @param appKey  申请的appKey
- *  @param cerName  推送证书名
  *  @discussion 如果需要更多注册选项，推荐使用 registerWithOption:
  */
 - (void)registerWithAppID:(NSString *)appKey
@@ -74,7 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  更新 PushKit Token
  *
  *  @param token PushKit token
- *  @discussion 目前仅支持 PKPushTypeVoIP
+ *  @discussion token = [credentials token]，且目前仅支持 PKPushTypeVoIP
  */
 - (void)updatePushKitToken:(NSData *)token;
 
@@ -148,15 +147,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,strong,readonly)   id<NIMDocTranscodingManager> docTranscodingManager;
 
+
 /**
  *  事件订阅管理类
  */
 @property (nonatomic,strong,readonly)   id<NIMEventSubscribeManager> subscribeManager;
-
-/**
- *  智能机器人管理类
- */
-@property (nonatomic,strong,readonly)   id<NIMRobotManager> robotManager;
 
 @end
 

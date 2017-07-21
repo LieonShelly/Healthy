@@ -19,14 +19,14 @@ PODS:
     - Alamofire (~> 4.1)
   - CocoaAsyncSocket (7.6.1)
   - DACircularProgress (2.3.1)
-  - HandyJSON (1.7.2)
+  - HandyJSON (1.7.1)
   - KissXML (5.2.0)
   - MBProgressHUD (0.9.2)
   - MWPhotoBrowser (2.1.2):
     - DACircularProgress (~> 2.3)
     - MBProgressHUD (~> 0.9)
     - SDWebImage (!= 3.7.2, ~> 3.7)
-  - NIMSDK (4.0.0)
+  - NIMSDK (3.9.0)
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
@@ -37,6 +37,7 @@ PODS:
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
   - Socket.IO-Client-Swift (8.3.3)
+  - SocketRocket (0.5.1)
   - SwiftyJSON (3.1.4)
   - TZImagePickerController (1.8.1)
   - UITableView+FDTemplateLayoutCell_Bell (1.5.0)
@@ -59,6 +60,7 @@ DEPENDENCIES:
   - SDCycleScrollView
   - SDWebImage (= 3.8.2)
   - Socket.IO-Client-Swift (~> 8.3.0)
+  - SocketRocket
   - SwiftyJSON
   - TZImagePickerController
   - UITableView+FDTemplateLayoutCell_Bell (~> 1.5.0)
@@ -71,22 +73,23 @@ SPEC CHECKSUMS:
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   CocoaAsyncSocket: 7eadd3f59e1a6c84e2aefc93e9ff7b55156fe174
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
-  HandyJSON: e7ad0483005826baba1d1c251cd98d0aa8bd8cce
+  HandyJSON: 54b6ce942795f7b2e61b82fe73cf25d9f139d125
   KissXML: 1c1eeeb6b94e4522cd2f2373e5d0d03c9227738f
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
-  NIMSDK: f919c8315c0d5775f8a0a84ce7c5ef12060b025d
+  NIMSDK: 3913de9cd054736c5e3c107811350c414561f627
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   rebekka: 456c2c3d1013faad49530845cae2cf9de8559ffb
   SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   Socket.IO-Client-Swift: a2faffdbde89c63aebc5d631041530c1068b02b8
+  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  TZImagePickerController: 086034156913375cb19c8e4103562f15322c3b36
+  TZImagePickerController: '086034156913375cb19c8e4103562f15322c3b36'
   UITableView+FDTemplateLayoutCell_Bell: ee65b057dbbe937bb6764f33d4ca6910d05a0efd
   UPCarouselFlowLayout: 02045c1505d63057fba3d9975be880a8d16bf17d
   XCGLogger: 0b43697155d41e4a1b15fc776f319c2141646b09
 
-PODFILE CHECKSUM: b88cf37a9b183930a3849ef37fcd80dde4ef9de2
+PODFILE CHECKSUM: 054b4964b8716c2c4fada2f3038e838c2841985c
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

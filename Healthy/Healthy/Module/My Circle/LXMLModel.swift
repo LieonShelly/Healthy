@@ -1,4 +1,4 @@
-//
+ //
 //  LXMLModel.swift
 //  Healthy
 //
@@ -46,11 +46,7 @@ import SystemConfiguration.CaptiveNetwork
 </MessgaeData>
 */
 
-enum CommandType: String {
-    case log = "F000"
-    case opration = "F002"
-    case regist = "F003"
-}
+
 
 class LXMLModel {
     
@@ -71,8 +67,6 @@ class LXMLModel {
         let _ = createElement(name: "MacData", value: nil, superElement: terminalElement)
         let _ =  createElement(name: "UserName", value: "C000001", superElement: terminalElement)
         let _ = createElement(name: "Data", value: nil, superElement: terminalElement)
-        
-        
         let localElement = createElement(name: "LocalName", value: nil, superElement: rootElement)
         let lterminalElement = createElement(name: "TerminalData", value: nil, superElement: localElement)
         let _ = createElement(name: "EquipmentNum", value: "02:00:00:00:00:00", superElement: lterminalElement)
@@ -86,7 +80,6 @@ class LXMLModel {
         let _ = createElement(name: "SaveTime", value: self.getCurrentTime(), superElement: rootElement)
         let _ = createElement(name: "Data", value: dataStr, superElement: rootElement)
         let _ = createElement(name: "Validation", value: nil, superElement: rootElement)
-//        let _ = createElement(name: "Command", value: "ssss", superElement: rootElement)
         var doc: DDXMLDocument = DDXMLDocument.init()
         do {
             print("成功")
@@ -94,18 +87,15 @@ class LXMLModel {
         } catch  {
             print("异常")
         }
-        print(doc.xmlString)
+        print("**************\(doc.xmlString))")
         let data = doc.xmlData
-//        let string = String.init(data: data, encoding: .utf8)
-//        print(string)
         
         return data
     }
     
-    static func createElement(name: String!, value: String!, superElement: DDXMLElement) -> DDXMLElement{
+    static func createElement(name: String!, value: String!, superElement: DDXMLElement = DDXMLElement(name: "MessgaeData")) -> DDXMLElement {
         let element = DDXMLElement.init(name: name, stringValue: value)
         superElement.addChild(element)
-        
         return element
     }
     

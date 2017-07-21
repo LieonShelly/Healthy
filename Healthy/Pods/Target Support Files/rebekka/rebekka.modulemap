@@ -1,6 +1,0 @@
-framework module rebekka {
-  umbrella header "rebekka-umbrella.h"
-
-  export *
-  module * { export * }
-}

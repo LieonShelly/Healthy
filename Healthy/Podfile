@@ -22,7 +22,8 @@ target 'Healthy' do
   pod 'KissXML'
   pod 'MWPhotoBrowser', '~> 2.1.2'
   pod 'TZImagePickerController'
-  
+  pod 'RxSwift',    '~> 3.0'
+  pod 'RxCocoa',    '~> 3.0'
   pod 'rebekka', '~> 1.0.3'
   
   pod 'NIMSDK'

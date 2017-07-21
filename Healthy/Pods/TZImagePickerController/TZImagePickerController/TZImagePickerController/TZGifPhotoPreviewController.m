@@ -13,6 +13,9 @@
 #import "TZPhotoPreviewCell.h"
 #import "TZImageManager.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 @interface TZGifPhotoPreviewController () {
     UIView *_toolBar;
     UIButton *_doneButton;
@@ -95,7 +98,10 @@
 - (void)signleTapAction {
     _toolBar.hidden = !_toolBar.isHidden;
     [self.navigationController setNavigationBarHidden:_toolBar.isHidden];
-    if (iOS7Later) [UIApplication sharedApplication].statusBarHidden = _toolBar.isHidden;
+    
+    if (!TZ_isGlobalHideStatusBar) {
+        if (iOS7Later) [UIApplication sharedApplication].statusBarHidden = _toolBar.isHidden;
+    }
 }
 
 - (void)doneButtonClick {
@@ -123,5 +129,7 @@
         imagePickerVc.didFinishPickingGifImageHandle(animatedImage,_model.asset);
     }
 }
+
+#pragma clang diagnostic pop
 
 @end

@@ -31,6 +31,9 @@ PODS:
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
   - rebekka (1.0.3)
+  - RxCocoa (3.6.1):
+    - RxSwift (~> 3.6)
+  - RxSwift (3.6.1)
   - SDCycleScrollView (1.65):
     - SDWebImage (~> 3.7)
   - SDWebImage (3.8.2):
@@ -38,7 +41,7 @@ PODS:
   - SDWebImage/Core (3.8.2)
   - Socket.IO-Client-Swift (8.3.3)
   - SwiftyJSON (3.1.4)
-  - TZImagePickerController (1.8.1)
+  - TZImagePickerController (1.8.3)
   - UITableView+FDTemplateLayoutCell_Bell (1.5.0)
   - UPCarouselFlowLayout (1.1.1)
   - XCGLogger (5.0.1):
@@ -56,6 +59,8 @@ DEPENDENCIES:
   - MWPhotoBrowser (~> 2.1.2)
   - NIMSDK
   - rebekka (~> 1.0.3)
+  - RxCocoa (~> 3.0)
+  - RxSwift (~> 3.0)
   - SDCycleScrollView
   - SDWebImage (= 3.8.2)
   - Socket.IO-Client-Swift (~> 8.3.0)
@@ -78,15 +83,17 @@ SPEC CHECKSUMS:
   NIMSDK: f919c8315c0d5775f8a0a84ce7c5ef12060b025d
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   rebekka: 456c2c3d1013faad49530845cae2cf9de8559ffb
+  RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
+  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   Socket.IO-Client-Swift: a2faffdbde89c63aebc5d631041530c1068b02b8
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  TZImagePickerController: 086034156913375cb19c8e4103562f15322c3b36
+  TZImagePickerController: 8c02d10822404b26c4330cdb79f2e46fb6a61473
   UITableView+FDTemplateLayoutCell_Bell: ee65b057dbbe937bb6764f33d4ca6910d05a0efd
   UPCarouselFlowLayout: 02045c1505d63057fba3d9975be880a8d16bf17d
   XCGLogger: 0b43697155d41e4a1b15fc776f319c2141646b09
 
-PODFILE CHECKSUM: b88cf37a9b183930a3849ef37fcd80dde4ef9de2
+PODFILE CHECKSUM: 32383927e203707df8d44949e09d6c1be45740e7
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

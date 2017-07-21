@@ -4,7 +4,8 @@
 //
 //  Created by 谭真 on 15/12/24.
 //  Copyright © 2015年 谭真. All rights reserved.
-//  version 1.8.0 - 2017.06.03
+//  version 1.8.3 - 2017.07.15
+//  更多信息，请前往项目的github地址：https://github.com/banchichen/TZImagePickerController
 
 #import "TZImagePickerController.h"
 #import "TZPhotoPickerController.h"
@@ -44,6 +45,7 @@
     self.navigationBar.translucent = YES;
     [TZImageManager manager].shouldFixOrientation = NO;
     
+
     // Default appearance, you can reset these after this method
     // 默认的外观，你可以在这个方法后重置
     self.oKButtonTitleColorNormal   = [UIColor colorWithRed:(83/255.0) green:(179/255.0) blue:(17/255.0) alpha:1.0];
@@ -443,6 +445,11 @@
     [TZImageManager manager].photoPreviewMaxWidth = _photoPreviewMaxWidth;
 }
 
+- (void)setPhotoWidth:(CGFloat)photoWidth {
+    _photoWidth = photoWidth;
+    [TZImageManager manager].photoWidth = photoWidth;
+}
+
 - (void)setSelectedAssets:(NSMutableArray *)selectedAssets {
     _selectedAssets = selectedAssets;
     _selectedModels = [NSMutableArray array];
@@ -535,12 +542,14 @@
     UITableView *_tableView;
 }
 @property (nonatomic, strong) NSMutableArray *albumArr;
+@property (assign, nonatomic) BOOL isFirstAppear;
 @end
 
 @implementation TZAlbumPickerController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.isFirstAppear = YES;
     self.view.backgroundColor = [UIColor whiteColor];
     
     TZImagePickerController *imagePickerVc = (TZImagePickerController *)self.navigationController;
@@ -558,7 +567,10 @@
     }
     
     // 1.6.10 采用微信的方式，只在相册列表页定义backBarButtonItem为返回，其余的顺系统的做法
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[NSBundle tz_localizedStringForKey:@"Back"] style:UIBarButtonItemStylePlain target:nil action:nil];
+    if (self.isFirstAppear) {
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[NSBundle tz_localizedStringForKey:@"Back"] style:UIBarButtonItemStylePlain target:nil action:nil];
+        self.isFirstAppear = NO;
+    }
     
     [self configTableView];
 }
@@ -578,11 +590,11 @@
                     CGFloat tableViewHeight = 0;
                     if (self.navigationController.navigationBar.isTranslucent) {
                         top = 44;
-                        if (iOS7Later) top += 20;
+                        if (iOS7Later && !TZ_isGlobalHideStatusBar) top += 20;
                         tableViewHeight = self.view.tz_height - top;
                     } else {
                         CGFloat navigationHeight = 44;
-                        if (iOS7Later) navigationHeight += 20;
+                        if (iOS7Later && !TZ_isGlobalHideStatusBar) navigationHeight += 20;
                         tableViewHeight = self.view.tz_height - navigationHeight;
                     }
                     
@@ -628,6 +640,7 @@
     [self.navigationController pushViewController:photoPickerVc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
+
 #pragma clang diagnostic pop
 
 @end
